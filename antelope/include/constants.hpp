@@ -16,8 +16,8 @@ namespace orc_bridge
 
   static constexpr auto WORD_SIZE            = 32u;
   static constexpr auto EVM_SYSTEM_CONTRACT  = eosio::name("eosio.evm");
-  static constexpr auto FUNCTION_SIGNATURE   = "117862c9";
-  static constexpr auto EVM_STORAGE_INDEX    = 1;
+  static constexpr auto FUNCTION_SIGNATURE   = "91b7f5ed";
+  static constexpr auto EVM_STORAGE_INDEX    = 2;
   static constexpr auto GAS_LIMIT            = 0x000000000000000000000000000000000000000000000000000000001e8480 ;
   static constexpr size_t CURRENT_CHAIN_ID   = ChainIDs::TELOS_TESTNET; // Constant chain ID determined at COMPILE time
 }
