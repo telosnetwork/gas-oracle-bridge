@@ -18,6 +18,12 @@ Next, you can deploy the contract using cleos
 
 `cleos --url http://testnet.telos.caleos.io set contract YOUR_ACCOUNT_NAME /full/path/to/folder/antelope build/gas.bridge.wasm`
 
+## Add the code permission
+
+You then have to add the code permission to your contract account using cleos
+
+`cleos -u https://testnet.telos.net set account permission YOUR_ACCOUNT_NAME active --add-code`
+
 ## Configure
 
 You then need to configure the EVM address of the EVM contract that is part of the bridge (see the [evm](https://github.com/telosnetwork/gas-oracle-bridge/tree/master/evm) folder)
