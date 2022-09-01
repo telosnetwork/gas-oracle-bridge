@@ -9,14 +9,6 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
-"@eosrio/hyperion-stream-client@^0.4.0-beta.5":
-  version "0.4.0-beta.5"
-  resolved "https://registry.yarnpkg.com/@eosrio/hyperion-stream-client/-/hyperion-stream-client-0.4.0-beta.5.tgz#5662775e1c0e097968ac9c1c3b0398925d2145fd"
-  integrity sha512-MSUvPx7pGpDQenFNpKOriz8hKyRY2M8U+t3gZzVj0WpavUc5s2fSCj6Bfq0QaWvdwF4o1WNT1YgnPEC8mYBIfg==
-  dependencies:
-    async "^3.2.0"
-    socket.io-client "^2.3.0"
-
 after@0.8.2:
   version "0.8.2"
   resolved "https://registry.yarnpkg.com/after/-/after-0.8.2.tgz#fedb394f9f0e02aa9768e702bda23b505fae7e1f"
