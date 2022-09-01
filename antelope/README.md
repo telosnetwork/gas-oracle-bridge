@@ -40,4 +40,4 @@ Finally you can create is linked EVM address using
 
 `cleos --url http://testnet.telos.caleos.io push action eosio.evm create '{"account": "YOUR_ACCOUNT_NAME", "data": ""}' -p YOUR_ACCOUNT_NAME@active`
 
-Don't forget to save it ! (If you do, search for YOUR_ACCOUNT_NAME on [teloscan](https://testnet.teloscan.io/))
+Don't forget to save it ! You will need it to configure the EVM contract as well as the listener (If you do, search for YOUR_ACCOUNT_NAME on [teloscan](https://testnet.teloscan.io/))
