@@ -1,6 +1,6 @@
 // @author Thomas Cuvillier
 // @contract gas.bridge
-// @version v1
+// @version v1.0
 
 #include <vector>
 
@@ -18,6 +18,7 @@
 
 // TELOS EVM
 #include <constants.hpp>
+#include <util.hpp>
 #include <datastream.hpp>
 #include <tables.hpp>
 

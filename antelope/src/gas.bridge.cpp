@@ -23,7 +23,7 @@ namespace orc_bridge
     // set the contract version
     ACTION gasbridge::setversion(string new_version){
         // authenticate
-        require_auth(config_bridge.get().admin);
+        require_auth(get_self());
 
         auto stored = config_bridge.get();
         stored.version = new_version;
@@ -35,7 +35,7 @@ namespace orc_bridge
     // set the bridge evm address
     ACTION gasbridge::setevmctc(eosio::checksum160 new_contract){
         // authenticate
-        require_auth(config_bridge.get().admin);
+        require_auth(get_self());
 
         // Save
         auto stored = config_bridge.get();
