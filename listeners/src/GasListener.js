@@ -53,10 +53,23 @@ class GasListener {
             return false;
         }
         console.log(gas_price, evm_contract_gas_price);
-        // TODO: Format values properly
         if(gas_price !== evm_contract_gas_price){
             console.log(`Updating price...`);
-            // TODO: Call antelope bridge verify() action
+            this.api.transact({
+                actions: [{
+                    account: "gasbridge",
+                    name: 'verify',
+                    authorization: [{ actor: this.oracleName, permission: this.oraclePermission }],
+                    data: {},
+                }]
+            }, {
+                blocksBehind: 3,
+                expireSeconds: 30,
+            }).then(result => {
+                console.log('\nCalled verify()');
+            }).catch(e => {
+                console.log('\nCaught exception: ' + e);
+            });
         }
     }
 
