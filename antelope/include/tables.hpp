@@ -36,6 +36,22 @@ namespace orc_bridge {
         eosio::indexed_by<eosio::name("byaccount"), eosio::const_mem_fun<Account, uint64_t, &Account::get_account_value>>
       > account_table;
 
+      // AccountState
+      struct [[eosio::table, eosio::contract("eosio.evm")]] AccountState {
+        uint64_t index;
+        eosio::checksum256 key;
+        bigint::checksum256 value;
+
+        uint64_t primary_key() const { return index; };
+        eosio::checksum256 by_key() const { return key; };
+
+        EOSLIB_SERIALIZE(AccountState, (index)(key)(value));
+      };
+
+      typedef eosio::multi_index<"accountstate"_n, AccountState,
+        eosio::indexed_by<eosio::name("bykey"), eosio::const_mem_fun<AccountState, eosio::checksum256, &AccountState::by_key>>
+      > account_state_table;
+
       // eosio.evm Config
       struct [[eosio::table, eosio::contract("eosio.evm")]] config {
         uint32_t trx_index = 0;
