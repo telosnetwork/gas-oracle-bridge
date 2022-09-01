@@ -1,54 +1,63 @@
 const ecc = require("eosjs-ecc");
 const HyperionStreamClient = require("@eosrio/hyperion-stream-client").default;
 const fetch = require("node-fetch");
-const ethers = require("ethers");
+const {BigNumber, ethers } = require("ethers");
+const ABI = [{ "inputs": [], "name": "gasPrice", "outputs": [{ "internalType": "uint256",  "name": "", "type": "uint256"}],  "stateMutability": "view", "type": "function"}]
 
 const CONFIG_TABLE = "config";
 
 class GasListener {
     constructor(
-        contract,
+        contract_account,
+        evm_contract_address,
         oracleName,
         oraclePermission,
         rpc,
         api,
+        evm_provider,
+        evm_api,
     ) {
-        this.contract = contract;
+        this.contract_account = contract_account;
         this.oracleName = oracleName;
         this.oraclePermission = oraclePermission;
+        this.evm_contract_address = evm_contract_address;
         this.rpc = rpc;
         this.api = api;
+        this.evm_api = evm_api;
+        this.evm_provider = evm_provider;
     }
 
     async start() {
-        setInterval(function () {
-            await this.doCheck();
+        let ctx = this;
+        setInterval(async function () {
+            await ctx.doCheck();
         }, 1000)
     }
 
-
-
     async doCheck() {
-        console.log(`Doing table check...`);
-        const antelope_config = await this.rpc.get_table_rows({
-            code: this.contract,
-            scope: this.contract,
-            table: CONFIG_TABLE,
-            limit: 1,
-        });
-
-        const antelope_gas_price = antelope_config.gas_price;
-
+        let gas_price, evm_contract_gas_price = 0;
+        try {
+            gas_price = BigNumber.from(`0x${await this.evm_api.telos.getGasPrice()}`)
+        } catch (e) {
+            console.log(e);
+            return false;
+        }
         // TODO: Get EVM gas price from EVM bridge using ethers
-        const evm_gas_price = 0;
-
+        try {
+            const evm_contract = new ethers.Contract(this.evm_contract_address, ABI, this.evm_provider);
+            evm_contract_gas_price = await evm_contract.gasPrice();
+        } catch (e) {
+            console.log(e);
+            return false;
+        }
+        console.log(gas_price, evm_contract_gas_price);
         // TODO: Format values properly
-        if(antelope_gas_price !== evm_gas_price){
+        if(gas_price !== evm_contract_gas_price){
+            console.log(`Updating price...`);
             // TODO: Call antelope bridge verify() action
         }
-        console.log(`Done doing table check!`);
     }
 
 }
 
-module.exports = RequestOracle;
+module.exports = GasListener;
