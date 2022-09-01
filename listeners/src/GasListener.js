@@ -16,6 +16,7 @@ class GasListener {
         api,
         evm_provider,
         evm_api,
+        interval
     ) {
         this.contract_account = contract_account;
         this.oracleName = oracleName;
@@ -25,13 +26,14 @@ class GasListener {
         this.api = api;
         this.evm_api = evm_api;
         this.evm_provider = evm_provider;
+        this.interval = interval;
     }
 
     async start() {
         let ctx = this;
         setInterval(async function () {
             await ctx.doCheck();
-        }, 1000)
+        }, this.interval)
     }
 
     async doCheck() {
