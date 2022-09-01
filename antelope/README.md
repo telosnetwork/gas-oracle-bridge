@@ -10,9 +10,13 @@ You can build the contract using
 
 ## Deploy
 
-You can deploy the contract using cleos 
+First you must create the build directory, you can do so using
 
-`cleos --url http://testnet.telos.caleos.io set contract YOUR_ACCOUNT_NAME /var/www/staked/gas-oracle/antelope build/gas.bridge.wasm`
+`mkdir build`
+
+You can then deploy the contract using cleos 
+
+`cleos --url http://testnet.telos.caleos.io set contract YOUR_ACCOUNT_NAME /full/path/to/folder/antelope build/gas.bridge.wasm`
 
 ## Configure
 
