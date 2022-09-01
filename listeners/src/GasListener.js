@@ -11,7 +11,6 @@ class GasListener {
         bridgeName,
         oracleName,
         oraclePermission,
-        rpc,
         api,
         evm_provider,
         evm_api,
