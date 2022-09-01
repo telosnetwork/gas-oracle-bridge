@@ -4,23 +4,23 @@ This is the gas.bridge.ccp contract for the Gas Oracle Bridge.
 
 ## Build
 
-You can build the contract using
+First you must create the build directory, you can do so using
+
+`mkdir build`
+
+You can then build the contract using
 
 `bash build.sh`
 
 ## Deploy
 
-First you must create the build directory, you can do so using
-
-`mkdir build`
-
-You can then deploy the contract using cleos 
+Next, you can deploy the contract using cleos 
 
 `cleos --url http://testnet.telos.caleos.io set contract YOUR_ACCOUNT_NAME /full/path/to/folder/antelope build/gas.bridge.wasm`
 
 ## Configure
 
-You then need to configure the EVM address of the EVM contract that is part of the bridge (see the [evm](https://github.com/telosnetwork/gas-oracle-bridge/tree/master/evm) folder)
+Finally, you need to configure the EVM address of the EVM contract that is part of the bridge (see the [evm](https://github.com/telosnetwork/gas-oracle-bridge/tree/master/evm) folder)
 
 Use cleos to do so with
 
