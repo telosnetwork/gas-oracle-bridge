@@ -1,5 +1,3 @@
-const ecc = require("eosjs-ecc");
-const HyperionStreamClient = require("@eosrio/hyperion-stream-client").default;
 const fetch = require("node-fetch");
 const {BigNumber, ethers } = require("ethers");
 const ABI = [{ "inputs": [], "name": "gasPrice", "outputs": [{ "internalType": "uint256",  "name": "", "type": "uint256"}],  "stateMutability": "view", "type": "function"}]
@@ -59,7 +57,7 @@ class GasListener {
         }
 
         if(gas_price.eq(evm_contract_gas_price) === false){
-            console.log(`Updating price...`);
+**            console.log(`Updating price...`);
             this.api.transact({
                 actions: [{
                     account: this.bridgeName,
