@@ -8,6 +8,10 @@ If they do not match it then calls the `verify()` action of the `gas.bridge.cpp`
 
 This repository is separated in 3 modules that each have to be setup for the bridge to work: evm, antelope & listeners
 
+## Requirements
+
+This repository uses NodeJS and NPM
+
 ## EVM
 
 ## Antelope
