@@ -22,7 +22,6 @@ class GasListener {
         this.oracleName = oracleName;
         this.oraclePermission = oraclePermission;
         this.evm_contract_address = evm_contract_address;
-        this.rpc = rpc;
         this.api = api;
         this.evm_api = evm_api;
         this.evm_provider = evm_provider;
