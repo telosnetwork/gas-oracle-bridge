@@ -10,7 +10,7 @@ This repository is separated in 3 modules that each have to be setup for the bri
 
 ## Requirements
 
-This repository uses NodeJS, NPM and cleos
+This repository uses NodeJS, NPM, cleos and various dependencies
 
 ## EVM
 
