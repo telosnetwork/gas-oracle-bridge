@@ -22,7 +22,7 @@ You can verify the deploy the contract using
 
 ## Configure
 
-You then need to call the `setOracleEvmAddress()` function to configure the evm address of the antelope contract that is part of the bridge (see antelope folder)
+You then need to call the `setOracleEvmAddress()` function to configure the evm address of the antelope contract that is part of the bridge (see [antelope](https://github.com/telosnetwork/gas-oracle-bridge/tree/master/antelope) folder)
 
 You can interact with the deployed contract using
 
