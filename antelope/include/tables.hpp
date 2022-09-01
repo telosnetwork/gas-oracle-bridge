@@ -51,9 +51,9 @@ namespace orc_bridge {
     // Config
     TABLE bridgeconfig {
         eosio::checksum160 evm_contract;
+        uint64_t evm_contract_scope;
         string version;
-
-        EOSLIB_SERIALIZE(bridgeconfig, (evm_contract)(version));
+        EOSLIB_SERIALIZE(bridgeconfig, (evm_contract)(evm_contract_scope)(version));
     } config_row;
 
     typedef eosio::singleton<"bridgeconfig"_n, bridgeconfig> config_singleton_bridge;
