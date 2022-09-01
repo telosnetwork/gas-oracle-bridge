@@ -30,5 +30,5 @@ const api = new Api({
     textEncoder: new util.TextEncoder()
 });
 
-const gasListener = new GasListener(contract, process.env.EVM_BRIDGE_CONTRACT, process.env.ORACLE_NAME, process.env.ORACLE_PERMISSION, rpc, api, evm_provider, evm_api, parseInt(process.env.CHECK_INTERVAL_MS))
+const gasListener = new GasListener(contract, process.env.EVM_BRIDGE_CONTRACT, process.env.BRIDGE_NAME, process.env.ORACLE_NAME, process.env.ORACLE_PERMISSION, rpc, api, evm_provider, evm_api, parseInt(process.env.CHECK_INTERVAL_MS))
 gasListener.start();

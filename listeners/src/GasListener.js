@@ -10,6 +10,7 @@ class GasListener {
     constructor(
         contract_account,
         evm_contract_address,
+        bridgeName,
         oracleName,
         oraclePermission,
         rpc,
@@ -19,6 +20,7 @@ class GasListener {
         interval
     ) {
         this.contract_account = contract_account;
+        this.bridgeName = bridgeName;
         this.oracleName = oracleName;
         this.oraclePermission = oraclePermission;
         this.evm_contract_address = evm_contract_address;
@@ -38,13 +40,16 @@ class GasListener {
 
     async doCheck() {
         let gas_price, evm_contract_gas_price = 0;
+
+        // Get gas price from eosio.evm using TelosEVMApi
         try {
             gas_price = BigNumber.from(`0x${await this.evm_api.telos.getGasPrice()}`)
         } catch (e) {
             console.log(e);
             return false;
         }
-        // TODO: Get EVM gas price from EVM bridge using ethers
+
+        // Get EVM gas price from EVM bridge using ethers
         try {
             const evm_contract = new ethers.Contract(this.evm_contract_address, ABI, this.evm_provider);
             evm_contract_gas_price = await evm_contract.gasPrice();
@@ -52,12 +57,12 @@ class GasListener {
             console.log(e);
             return false;
         }
-        console.log(gas_price, evm_contract_gas_price);
+
         if(gas_price !== evm_contract_gas_price){
             console.log(`Updating price...`);
             this.api.transact({
                 actions: [{
-                    account: "gasbridge",
+                    account: this.bridgeName,
                     name: 'verify',
                     authorization: [{ actor: this.oracleName, permission: this.oraclePermission }],
                     data: {},
@@ -66,9 +71,9 @@ class GasListener {
                 blocksBehind: 3,
                 expireSeconds: 30,
             }).then(result => {
-                console.log('\nCalled verify()');
+                console.log(`Updated price !`);
             }).catch(e => {
-                console.log('\nCaught exception: ' + e);
+                console.log('Failed, caught exception: ' + e);
             });
         }
     }
