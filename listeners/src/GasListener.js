@@ -58,7 +58,7 @@ class GasListener {
             return false;
         }
 
-        if(gas_price !== evm_contract_gas_price){
+        if(gas_price.eq(evm_contract_gas_price) === false){
             console.log(`Updating price...`);
             this.api.transact({
                 actions: [{
