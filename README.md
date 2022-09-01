@@ -16,16 +16,16 @@ This repository requires NodeJS, NPM and cleos
 
 This folder contains the `GasOracleBridge.sol` EVM contract for the bridge. It uses hardhat and hardhat-deploy.
 
-For more, refer to the `README.md` inside the `evm` folder
+For more, refer to the `README.md` inside the [`evm`](https://github.com/telosnetwork/gas-oracle-bridge/tree/master/evm) folder
 
 ## Antelope
 
 This folder contains the `gas.bridge.cpp` Antelope contract for the bridge with bash scripts to easily build & deploy 
 
-For more, refer to the `README.md` inside the `antelope` folder
+For more, refer to the `README.md` inside the [`antelope`](https://github.com/telosnetwork/gas-oracle-bridge/tree/master/antelope) folder
 
 ## Listeners
 
-This folder contains the GasListener which checks gas prices between `eosio.evm` and `GasOracleBridge.sol` and calls the `gas.bridge.cpp` contract  `verify()` action if needed
+This folder contains the `GasListener` which checks gas prices between `eosio.evm` and `GasOracleBridge.sol` and calls the `gas.bridge.cpp` contract  `verify()` action if needed
 
-For more, refer to the `README.md` inside the `listeners` folder
+For more, refer to the `README.md` inside the [`listeners`](https://github.com/telosnetwork/gas-oracle-bridge/tree/master/listeners) folder
