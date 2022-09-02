@@ -1,6 +1,6 @@
 # GasOracleBridge - Antelope
 
-This is the gas.bridge.ccp contract for the Gas Oracle Bridge.
+This is the gas.bridge.ccp contract for the Gas Oracle Bridge. It retreives gas price from `eosio.evm` and `GasOracleBridge.sol`, compares them and, if needed, calls the `setPrice(uint)` function of `GasOracleBridge.sol` through the `raw` action of `eosio.evm` 
 
 ## Build
 
