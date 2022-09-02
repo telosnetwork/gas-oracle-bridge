@@ -1,4 +1,4 @@
-# GasOracleBridge - EVM
+# Gas Oracle Bridge - EVM
 
 This is the `GasOracleBridge.sol` EVM contract for the bridge. It uses hardhat and hardhat-deploy.
 
