@@ -4,7 +4,7 @@ This is the `GasOracleBridge.sol` EVM contract for the bridge. It uses hardhat a
 
 It has a public `gasPrice` variable as well as a `getPrice()` view function
 
-It has a restricted `setPrice(uint)` functional only callable by the Antelope contract EVM address.
+It has a restricted `setPrice(uint)` function only callable by the Antelope contract EVM address.
 
 ## Test
 
