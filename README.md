@@ -10,6 +10,8 @@ A listener script, ideally ran by several actors, queries the gas price stored o
 
 If they do not match it then calls the `verify()` action of the `gas.bridge.cpp` contract which itself retreives the price from `eosio.evm` and `GasOracleBridge.sol`, compares them and if needed uses an `eosio.evm` contract action to call the `setPrice(uint)` function of the `GasOracleBridge.sol` EVM contract with the gas price from `eosio.evm` as argument.
 
+EVM contracts and users can then query the `gasPrice()` or `getPrice()` functions of the `GasOracleBridge.sol` contract on EVM to get the current gas price of Telos EVM.
+
 ## Requirements
 
 This repository requires NodeJS, NPM and cleos
