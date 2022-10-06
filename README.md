@@ -33,3 +33,7 @@ For more, refer to the `README.md` inside the [`antelope`](https://github.com/te
 This folder contains the `GasListener` which checks gas prices between `eosio.evm` and `GasOracleBridge.sol` and calls the `gas.bridge.cpp` contract  `verify()` action if needed
 
 For more, refer to the `README.md` inside the [`listeners`](https://github.com/telosnetwork/gas-oracle-bridge/tree/master/listeners) folder
+
+## Using it
+
+Follow the documentation available in Telos docs [here]() to learn how to query pair prices using our Gas Oracle Bridge.
